@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,4 +26,10 @@ public class GameBoard {
         return size;
     }
 
+    public boolean isSolved() {
+        for (int i = 0; i < tiles.size() - 1; i++) {
+            if (tiles.get(i) != i + 1) return false;
+        }
+        return tiles.get(tiles.size() - 1) == 0;
+    }
 }

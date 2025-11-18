@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class GamePanel extends JPanel {
     private GameBoard board;
@@ -26,7 +27,7 @@ public class GamePanel extends JPanel {
         JButton newGameButton = new JButton("Nytt spel");
         newGameButton.addActionListener(e -> {
             board.newGame();
-            //updateBoard();
+            updateBoard();
             messageLabel.setText("");
         });
 
@@ -36,10 +37,20 @@ public class GamePanel extends JPanel {
         add(newGameButton, BorderLayout.SOUTH);
         add(messageLabel, BorderLayout.NORTH);
 
-        //updateBoard();
+        updateBoard();
     }
 
+    private void updateBoard() {
+        List<Integer> tiles = board.getTiles();
+        for (int i = 0; i < tiles.size(); i++) {
+            int value = tiles.get(i);
+            buttons[i].setText(value == 0 ? "" : String.valueOf(value));
+        }
 
+        if (board.isSolved()) {
+            messageLabel.setText("Grattis, du vann!");
+        }
+    }
 
     private class TileClickListener implements ActionListener {
         private int index;
@@ -50,7 +61,6 @@ public class GamePanel extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // Här lägger vi till flyttlogiken i nästa steg
         }
     }
 }
