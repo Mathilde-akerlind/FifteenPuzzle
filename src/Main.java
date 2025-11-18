@@ -1,5 +1,3 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 import javax.swing.*;
 
@@ -9,6 +7,7 @@ public class Main {
             JFrame frame = new JFrame("15-spelet");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(400, 400);
+            frame.add(new GamePanel());
             frame.setVisible(true);
         });
     }
