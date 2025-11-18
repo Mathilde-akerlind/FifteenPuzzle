@@ -19,4 +19,12 @@ public class GameBoard {
         Collections.shuffle(tiles);
     }
 
+    public List<Integer> getTiles() {
+        return tiles;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
 }
