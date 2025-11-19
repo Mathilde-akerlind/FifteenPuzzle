@@ -8,6 +8,7 @@ public class Main {
             frame.setSize(400, 400);
             frame.add(new GamePanel());
             frame.setVisible(true);
+
         });
     }
 }
