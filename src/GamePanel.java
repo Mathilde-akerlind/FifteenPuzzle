@@ -61,6 +61,9 @@ public class GamePanel extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            if (board.tryMove(index)) {
+                updateBoard();
+            }
         }
     }
 }
