@@ -32,4 +32,24 @@ public class GameBoard {
         }
         return tiles.get(tiles.size() - 1) == 0;
     }
+
+    public boolean tryMove(int index) {
+        int emptyIndex = tiles.indexOf(0);
+
+        int row = index / size;
+        int col = index % size;
+
+        int emptyRow = emptyIndex / size;
+        int emptyCol = emptyIndex % size;
+
+        boolean adjacent =
+                (row == emptyRow && Math.abs(col - emptyCol) == 1) ||
+                        (col == emptyCol && Math.abs(row - emptyRow) == 1);
+
+        if (!adjacent) return false;
+
+        Collections.swap(tiles, index, emptyIndex);
+        return true;
+    }
+
 }
